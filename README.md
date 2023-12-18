@@ -31,11 +31,7 @@ WEBHOOK_URL = "https://discord.com/api/webhooks/your_webhook_url"
 
 3. **Exécution du Keylogger:**
 
-Pour exécuter le keylogger, suivez ces étapes :
-
 a. Assurez-vous d'avoir [Python](https://www.python.org/) installé sur votre machine.
-
-b.    
   ```bash 
 
   python keylogger.py
