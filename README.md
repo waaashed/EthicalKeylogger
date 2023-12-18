@@ -7,7 +7,6 @@ Ce projet open source propose un keylogger éthique qui enregistre les frappes d
 ## Fonctionnalités
 
 - **Enregistrement des frappes :** Capture les frappes de l'utilisateur.
-- **Enregistrement des clics de souris :** Compte le nombre de clics de souris effectués.
 - **Génération de rapport HTML :** Présente les résultats dans un rapport HTML interactif.
 - **Webhook Discord :** Envoie les frappes au canal Discord spécifié.
 
