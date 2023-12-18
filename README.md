@@ -13,11 +13,9 @@ Ce projet open source propose un keylogger éthique qui enregistre les frappes d
 ## Comment utiliser
 
 1. **Installation des dépendances :**
-
-   ```bash
-   
-   pip install flask pynput requests
-
+  ```bash 
+  pip install flask pynput requests
+```
 2. **Modification du code :**
 
 ```python
