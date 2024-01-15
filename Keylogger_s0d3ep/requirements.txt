@@ -1,0 +1,10 @@
+# requirements.txt
+
+# Utilisé pour effectuer des requêtes HTTP
+requests==2.31.0
+
+# Utilisé pour la gestion des événements du clavier et de la souris
+pynput==1.7.6
+
+# Utilisé pour le développement d'applications web
+Flask==3.0.0
