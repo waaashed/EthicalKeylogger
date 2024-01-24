@@ -9,6 +9,7 @@ Ce projet open source propose un keylogger éthique qui enregistre les frappes d
 - **Enregistrement des frappes :** Capture les frappes de l'utilisateur.
 - **Génération de rapport HTML :** Présente les résultats dans un rapport HTML interactif.
 - **Webhook Discord :** Envoie les frappes au canal Discord spécifié.
+- **Simulation réaliste d'installation d'un programme Cisco.
 
 ## Comment utiliser
 
