@@ -36,7 +36,7 @@ a. Assurez-vous d'avoir [Python](https://www.python.org/) installé sur votre ma
 
 Auto PY to EXE est convertisseur de fichiers .py en .exe utilisant une interface graphique simple et PyInstaller en Python.
 
-![pyinstaller](https://pypi-camo.freetls.fastly.net/eb29c9774b11dab42fbee0e2c5e9cf2af72895fc/68747470733a2f2f6e6974726174696e652e6e65742f706f7374732f6175746f2d70792d746f2d6578652f666561747572652e706e67)
+![pyinstaller](https://s13.gifyu.com/images/S0BmI.gif)
 
 a. Installation Via PyPI
 ```bash
