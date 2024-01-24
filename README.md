@@ -43,7 +43,7 @@ a. Installation Via PyPI
 
 pip install auto-py-to-exe
 ```
-b. Ensuite, pour l'exécuter, exécutez la commande suivante dans le terminal :
+b. Ensuite, exécutez la commande suivante dans le terminal :
 ```bash
 
 auto-py-to-exe
