@@ -34,7 +34,7 @@ a. Assurez-vous d'avoir [Python](https://www.python.org/) installé sur votre ma
 ```
 4. **Installation et Utilisation avec Auto PY to EXE (Optionnel) :**
 
-Auto PY to EXE est convertisseur de fichiers .py en .exe utilisant une interface graphique simple et PyInstaller en Python.
+[Auto PY to EXE](https://pypi.org/project/auto-py-to-exe/) est convertisseur de fichiers .py en .exe utilisant une interface graphique simple et PyInstaller en Python.
 
 ![pyinstaller](https://s13.gifyu.com/images/S0BmI.gif)
 
