@@ -1,4 +1,4 @@
-# Keylogger Ethical
+# Keylogger
 
 ![Keylogger Image](https://moonlock.com/2023/09/Keylogger-analysis-header.png)
 
