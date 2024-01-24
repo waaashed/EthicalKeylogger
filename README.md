@@ -41,12 +41,12 @@ Auto PY to EXE est convertisseur de fichiers .py en .exe utilisant une interface
 a. Installation Via PyPI
 ```bash
 
-  pip install auto-py-to-exe
+pip install auto-py-to-exe
 ```
 b. Ensuite, pour l'exécuter, exécutez la commande suivante dans le terminal :
 ```bash
 
-  auto-py-to-exe
+auto-py-to-exe
 ```
 
 ## Avertissement
