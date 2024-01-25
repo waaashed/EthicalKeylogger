@@ -49,6 +49,5 @@ b. Ensuite, exécutez la commande suivante dans le terminal :
 
 auto-py-to-exe
 ```
-
-## Avertissement
-L'utilisation de keyloggers sans consentement est contraire à la vie privée et peut être illégale. Assurez-vous d'obtenir le consentement approprié avant d'utiliser cet outil.
+> [!WARNING]
+> L'utilisation de keyloggers sans consentement est contraire à la vie privée et peut être illégale. Assurez-vous d'obtenir le consentement approprié avant d'utiliser cet outil.
