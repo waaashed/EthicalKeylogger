@@ -2,7 +2,7 @@
 
 ![Keylogger Image](https://moonlock.com/2023/09/Keylogger-analysis-header.png)
 
-Ce projet open source propose un keylogger éthique qui enregistre les frappes de l'utilisateur pendant une durée déterminée. Les résultats sont ensuite présentés dans un rapport HTML interactif.
+Ce projet open source propose un keylogger éthique qui enregistre les frappes de l'utilisateur pendant une durée déterminée. Les résultats sont ensuite présentés dans un rapport HTML interactif dans le but de sensibiliser les utilisateurs à l'exécution de logiciels tiers. La configuration du webhook Discord est facultative et ne pose pas de problème si elle n'est pas configurée. Elle sert uniquement de moyen d'identification.
 
 ## Fonctionnalités
 
