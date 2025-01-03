@@ -10,7 +10,7 @@ Ce projet open source propose un keylogger éthique qui enregistre les frappes d
 - **Génération de rapport HTML :** Présente les résultats dans un rapport HTML interactif.
 - **Webhook Discord :** Envoie les frappes au canal Discord spécifié.
 - **Simulation réaliste :** Installation d'un faux programme Cisco.
-- **Indédectable :** ≈ 87% de réussite face aux Anti-Virus (70) et 100% face aux Stations Blanches.
+- **Indédectable :** ≈ 87% de réussite face à 70 Anti-Virus et 100% face aux Stations Blanches.
 
 ## Comment utiliser
 
