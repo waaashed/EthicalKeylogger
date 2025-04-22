@@ -15,9 +15,7 @@
 3. [Quick Start](#quick-start)  
 4. [Building a Stand‑alone EXE](#building-a-stand-alone-exe)  
 5. [Configuration Reference](#configuration-reference)  
-6. [Contributing](#contributing)  
-7. [License](#license)  
-8. [Disclaimer](#disclaimer)  
+6. [Disclaimer](#disclaimer)  
 
 ---
 
