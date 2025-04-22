@@ -115,5 +115,5 @@ POLYMORPH_DELAY = 120         # Seconds before morphing stub
 ---
 
 ## Disclaimer
-
-This software is provided **“as is”, without warranty of any kind**. The authors and contributors are **not liable for any damages** or legal consequences arising from its use or misuse. By using this project you acknowledge that **all responsibility rests solely with you**.
+> [!WARNING]  
+> This software is provided **“as is”, without warranty of any kind**. The authors and contributors are **not liable for any damages** or legal consequences arising from its use or misuse. By using this project you acknowledge that **all responsibility rests solely with you**.
